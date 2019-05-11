@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[实现hexo异地搭建]]></title>
     <url>%2F2019%2F05%2F11%2F%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%2F</url>
-    <content type="text"><![CDATA[公司和家都可以了]]></content>
+    <content type="text"><![CDATA[终于搞定了，公司和家都可以发布GitHub了,最后总结一下经验，主要是有些命令网上博客会有很多版本也有一些不规范导致的多次失败，经过本人不懈的努力和一些朋友的热心帮助，最后终于搞定，在这里记录下，方便查阅。1234567891011121314151617=====================================================准备工作ssh-keygen -t rsa -C &quot;xxxxxx@qq.com&quot;ssh-keygen -t rsa -C&quot;xxxxxx@qq.com&quot;ssh-keygen -t rsa -C &quot;xxxxxx@qq.com&quot;cd ~/.ssh--cmd 四次回车ssh-keygen -t rsa -C &quot;xxxxxx@qq.com&quot;----------hexonpm install -g hexo ---npm install -g cnpm --registry=https://registry.npm.taobao.org---cnpm install hexo-cli -g --安装失败的话可以试试这个hexo init hexo --初始化hexonpm installhexo generatehexo serverhttp://loalhost:4000/ cd /e/Workspaces/hexo/ 搭建hexo参考版]]></content>
   </entry>
   <entry>
     <title><![CDATA[object.ReferenceEquals、字符串缓冲池、ref和out]]></title>
