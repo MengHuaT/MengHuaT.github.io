@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[实现hexo异地搭建]]></title>
+    <url>%2F2019%2F05%2F11%2F%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%2F</url>
+    <content type="text"><![CDATA[公司和家都可以了]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[object.ReferenceEquals、字符串缓冲池、ref和out]]></title>
+    <url>%2F2019%2F05%2F10%2F222%2F</url>
+    <content type="text"><![CDATA[相等object.ReferenceEquals(P1,P2)Equals方法的默认实现是比较两个变量是否是同一个对象。字符串由于override了Equals方法，内部进行内容的比较，所以对于字符串来讲==就是比较内容。 字符串缓冲池字符串不可变字符串是引用类型，每次都创建的话比较浪费内存，所以CLR作了暂存池，在一些情况下，对于字符串对象进行了重用 ref和outref值类型是拷贝引用类型是指定引用ref 就相当于把外部的变量传进来了，在函数内部可以改变外部变量的值的指向（例子：交换两个变量值）使用ref的传参的时候必须写ref swap 2（ref p1，ref p2）在方法内部可以改变变量值也可以不改变变量在传递之前必须赋值 例 int i=1； out的目的是函数返回多个返回值使用out的传参的时候必须写out static void test（out int i）对于out 参数，方法内部就认为他没有被赋值变量传递之前不需要被赋值在方法内部必须给out参数赋值常用于类型转换]]></content>
+      <tags>
+        <tag>.NET</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CTS 、CLS、CLR的理解]]></title>
+    <url>%2F2019%2F05%2F07%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[CTS 、CLS、CLR的理解IL .NET平台的中间语言 可以互通互联，互相调用。CTS 通用数据类型 各个语言编译器把自己语言的类型翻译成CTS中的类型。Int是C#中的类型，Int32是CTS的类型。CLS 不同的语言语法也是不同的，.NET平台规定了通用语言规范CLS可以编译为通用语法，c#可以转为vb等。CLR IL代码石油公共语言运行时（CLR）驱动运行的，CLR提供了垃圾回收（CG）、JIT(即时编译器)]]></content>
+      <tags>
+        <tag>.NET</tag>
+      </tags>
+  </entry>
+</search>

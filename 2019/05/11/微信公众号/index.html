@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>object.ReferenceEquals、字符串缓冲池、ref和out | MenghuaT&#39;s Blog</title>
+  <title>实现hexo异地搭建 | MenghuaT&#39;s Blog</title>
   <meta name="author" content="menghuaT">
   
   <meta name="description" content="Personal site">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="object.ReferenceEquals、字符串缓冲池、ref和out">
+  <meta property="og:title" content="实现hexo异地搭建">
   <meta property="og:site_name" content="MenghuaT&#39;s Blog">
 
   
@@ -51,20 +51,17 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2019-05-10T10:52:00.000Z"><a href="/2019/05/10/222/">2019-05-10</a></time>
+        <time datetime="2019-05-11T11:51:18.000Z"><a href="/2019/05/11/微信公众号/">2019-05-11</a></time>
       
       
   
-    <h1 class="title">object.ReferenceEquals、字符串缓冲池、ref和out</h1>
+    <h1 class="title">实现hexo异地搭建</h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="相等"><a href="#相等" class="headerlink" title="相等"></a><strong>相等</strong></h2><p><code>object.ReferenceEquals(P1,P2)</code><br>Equals方法的默认实现是比较两个变量是否是同一个对象。<br>字符串由于<strong>override</strong>了<strong>Equals</strong>方法，内部进行内容的比较，所以对于字符串来讲<strong>==</strong>就是比较内容。</p>
-<h2 id="字符串缓冲池"><a href="#字符串缓冲池" class="headerlink" title="字符串缓冲池"></a><strong>字符串缓冲池</strong></h2><p>字符串不可变<br>字符串是引用类型，每次都创建的话比较浪费内存，所以<br><strong>CLR</strong>作了<strong>暂存池</strong>，在一些情况下，对于字符串对象进行了重用</p>
-<h2 id="ref和out"><a href="#ref和out" class="headerlink" title="ref和out"></a><strong>ref</strong>和<strong>out</strong></h2><p><strong>ref</strong><br>值类型是拷贝<br>引用类型是指定引用<br><strong>ref</strong> 就相当于把外部的变量传进来了，在函数内部可以改变外部变量的值的指向（例子：交换两个变量值）<br>使用<strong>ref</strong>的传参的时候必须写<strong>ref</strong> swap 2（<strong>ref</strong> p1，<strong>ref</strong> p2）<br><strong>在方法内部可以改变变量值也可以不改变</strong><br><strong>变量在传递之前必须赋值</strong> 例 int i=1；</p>
-<p><strong>out的目的是函数返回多个返回值</strong><br>使用out的传参的时候必须写out static void test（<strong>out</strong> int i）<br>对于out 参数，方法内部就认为他没有被赋值<br><strong>变量传递之前不需要被赋值<br>在方法内部必须给out参数赋值</strong><br>常用于<strong>类型转换</strong></p>
+        <p>公司和家都可以了</p>
 
       
     </div>
@@ -72,11 +69,6 @@
       
         
         
-  
-  <div class="tags">
-    <a href="/tags/NET/">.NET</a>
-  </div>
-
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -117,7 +109,7 @@
   }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<div class="fb-comments" data-href="http://yoursite.com/2019/05/10/222/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+<div class="fb-comments" data-href="http://yoursite.com/2019/05/11/微信公众号/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
       
   
 </section>
