@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>委托的定义与应用 | MenghuaT&#39;s Blog</title>
+  <meta name="author" content="menghuaT">
+  
+  <meta name="description" content="Personal site">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="委托的定义与应用">
+  <meta property="og:site_name" content="MenghuaT&#39;s Blog">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="MenghuaT&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+</html>
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">MenghuaT&#39;s Blog</a></h1>
+  <h2><a href="/">wechat:tmhqwer</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-05-12T14:57:10.000Z"><a href="/2019/05/12/委托的定义与应用/">2019-05-12</a></time>
+      
+      
+  
+    <h1 class="title">委托的定义与应用</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="委托的定义"><a href="#委托的定义" class="headerlink" title="委托的定义"></a>委托的定义</h2><p><strong>delegate</strong>声明的语法：<code>delegate int MyDel(int i,string s);</code><br>MyDel是一个<strong>数据类型</strong></p>
+<p>可以声明一个变量指向和他类型相容的方法<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> delagete <span class="keyword">void</span> <span class="title">MyDel</span><span class="params">(<span class="keyword">int</span> n)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">M1</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Console.writeLine(a)</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><code>MyDel d1=new MyDel(M1);</code>//声明MyDel类型的变量，指向一个指向M1方法的对象<br>//可简化为 <code>MyDel  d1=M1;</code><br>不要声明成<code>MyDel  d1=M1();</code><br>因为加上括号就代表调用方法了，代表“<strong>执行指向的方法</strong>”，参数就要按照方法的规则传递。<br>委托和null都是<strong>引用类型</strong>，是可以为null,如果委托变量是null，那么调用的时候就会抛出NullReferenceException</p>
+<h2 id="委托的应用"><a href="#委托的应用" class="headerlink" title="委托的应用"></a>委托的应用</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="comment">//int[]无法直接转为object[]</span></span><br><span class="line">            <span class="comment">//int[] num = new int[] &#123; 3, 89, 9, 21 &#125;;</span></span><br><span class="line">            object[] nums=  <span class="keyword">new</span>   object []&#123;<span class="number">3.14f</span>,<span class="number">55.89f</span>,<span class="number">0.15f</span>,<span class="number">21.3f</span>&#125;;</span><br><span class="line">          <span class="comment">//  object m = GetMax(nums, CompareInt);</span></span><br><span class="line">            object m = GetMax(nums, <span class="keyword">new</span> compareFunc(CompareFloat));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            person p1 = <span class="keyword">new</span> person();</span><br><span class="line">            p1.Age = <span class="number">10</span>;</span><br><span class="line">            p1.name = <span class="string">"baidu"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            person p2 = <span class="keyword">new</span> person();</span><br><span class="line">            p2.Age = <span class="number">20</span>;</span><br><span class="line">            p2.name = <span class="string">"qq"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            person p3 = <span class="keyword">new</span> person();</span><br><span class="line">            p3.Age = <span class="number">13</span>;</span><br><span class="line">            p3.name = <span class="string">"sina"</span>;</span><br><span class="line"></span><br><span class="line">            person[] sites = <span class="keyword">new</span> person[] &#123; p1, p2, p3 &#125;;</span><br><span class="line">            m=  GetMax(sites, ComparePerson);</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(m);</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">CompareInt</span><span class="params">(object obj1, object obj2)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> i1=(<span class="keyword">int</span>)obj1;</span><br><span class="line">            <span class="keyword">int</span> i2=(<span class="keyword">int</span>)obj2;</span><br><span class="line">            <span class="keyword">return</span> i1&gt;i2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">CompareFloat</span><span class="params">(object obj1, object obj2)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">float</span> i1 = (<span class="keyword">float</span>)obj1;<span class="comment">//拆箱和装箱类型得一致</span></span><br><span class="line">            <span class="keyword">float</span> i2 = (<span class="keyword">float</span>) obj2;</span><br><span class="line">            <span class="keyword">return</span> i1 &gt; i2;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">ComparePerson</span><span class="params">(object obj1, object obj2)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            person i1 = (person)obj1;</span><br><span class="line">            person i2 = (person)obj2;</span><br><span class="line">            <span class="keyword">return</span> i1.Age &gt; i2.Age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">static</span> object <span class="title">GetMax</span><span class="params">(object[] nums, compareFunc func)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            object max = nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.Length; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (func(nums[i], max))<span class="comment">//调用func指向的方法，判断谁大，写这段代码的人也不知道func指向哪个方法，只知道func指向的方法有两个object 参数一个bool返回值</span></span><br><span class="line">                    max = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> max;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">person</span> </span></span><br><span class="line"><span class="class">        &#123;</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">int</span> Age &#123; <span class="built_in">set</span>; get; &#125;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">string</span> name &#123; <span class="built_in">set</span>; get; &#125;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> override <span class="built_in">string</span> <span class="title">ToString</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"Name="</span> + name + <span class="string">",Age="</span> + Age + <span class="string">";"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果obj1比obj2大  返回true 否则 false</span></span><br><span class="line">        <span class="function">delegate <span class="keyword">bool</span> <span class="title">compareFunc</span> <span class="params">(object obj1,object obj2)</span></span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="泛型委托"><a href="#泛型委托" class="headerlink" title="泛型委托"></a>泛型委托</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">          <span class="comment">//int[]无法直接转为object[]</span></span><br><span class="line">          <span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">3</span>, <span class="number">89</span>, <span class="number">9</span>, <span class="number">21</span> &#125;;</span><br><span class="line">          object m = GetMax(nums, CompareInt);</span><br><span class="line">          Console.WriteLine(m);</span><br><span class="line">          Console.ReadKey();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">CompareInt</span><span class="params">(<span class="keyword">int</span> obj1, <span class="keyword">int</span> obj2)</span></span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">return</span> obj1 &gt; obj2;</span><br><span class="line">      &#125;</span><br><span class="line">          <span class="keyword">static</span> T GetMax&lt;T&gt;(T[] nums, compareFunc&lt;T&gt; func)</span><br><span class="line">      &#123;</span><br><span class="line">          T max = nums[<span class="number">0</span>];</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.Length; i++)</span><br><span class="line">          &#123;</span><br><span class="line">              <span class="keyword">if</span> (func(nums[i], max))<span class="comment">//调用func指向的方法，判断谁大，写这段代码的人也不知道func指向哪个方法，只知道func指向的方法有两个object 参数一个bool返回值</span></span><br><span class="line">                  max = nums[i];</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> max;</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">//如果obj1比obj2大  返回true 否则 false</span></span><br><span class="line">      delegate <span class="keyword">bool</span> compareFunc&lt;T&gt;(T obj1, T obj2);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="内置泛型委托"><a href="#内置泛型委托" class="headerlink" title="内置泛型委托"></a>内置泛型委托</h2><p> <strong>Action 有参数无返回值的泛型委托<br> Func         有参数有返回值的泛型委托<br> 最多8个参数</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class">   &#123;</span></span><br><span class="line">       <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">       </span>&#123;</span><br><span class="line">           Action d1 = F1;</span><br><span class="line">           Action&lt;<span class="keyword">int</span>, <span class="built_in">string</span>&gt; d2 = F2;</span><br><span class="line">           Func&lt;<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">bool</span>&gt; d3 = CompareInt;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">F1</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">       </span>&#123;</span><br><span class="line">           Console.WriteLine(<span class="string">"F1"</span>);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">F2</span><span class="params">(<span class="keyword">int</span> i,<span class="built_in">string</span> s)</span></span></span><br><span class="line"><span class="function">       </span>&#123;</span><br><span class="line">           Console.WriteLine(<span class="string">"F2"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">CompareInt</span><span class="params">(<span class="keyword">int</span> i1, <span class="keyword">int</span> i2)</span></span></span><br><span class="line"><span class="function">       </span>&#123;</span><br><span class="line">           <span class="keyword">return</span> i1 &gt; i2;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2019/05/12/委托的定义与应用/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/NET/">.NET</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 menghuaT
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
