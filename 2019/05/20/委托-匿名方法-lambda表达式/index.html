@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>委托-匿名方法-lambda表达式 | MenghuaT&#39;s Blog</title>
+  <meta name="author" content="menghuaT">
+  
+  <meta name="description" content="Personal site">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="委托-匿名方法-lambda表达式">
+  <meta property="og:site_name" content="MenghuaT&#39;s Blog">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="MenghuaT&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+</html>
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">MenghuaT&#39;s Blog</a></h1>
+  <h2><a href="/">wechat:tmhqwer</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-05-20T14:14:00.000Z"><a href="/2019/05/20/委托-匿名方法-lambda表达式/">2019-05-20</a></time>
+      
+      
+  
+    <h1 class="title">委托-匿名方法-lambda表达式</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>使用<strong>Delegate</strong>的时候很多时候没必要使用一个普通的方法，因为这个方法只有这个<strong>Delegate</strong>会用，并且只用一次，这时候使用匿名方法最合适。<br><strong>匿名方法就是没有名字的方法。</strong></p>
+<pre><code>MyDelegate p = delegate(int s) { s = 10; };
+</code></pre><p>在IL中编译器是给匿名方法生成了名字的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Action&lt;int&gt; a1 = delegate(int i) &#123; Console.WriteLine(i); &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>匿名方法最大的作用，是用来推导出<strong>lambda</strong>表达式<br><a id="more"></a></p>
+<h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><p>函数式编程，在<strong>Entity framework</strong>编程中用的很多<br><em>=&gt;</em>读作<strong>goes to</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//lambda表达式格式的匿名方法的写法</span></span><br><span class="line">           Action&lt;<span class="keyword">int</span>&gt; a2 = (<span class="keyword">int</span> i) =&gt; &#123; Console.WriteLine(i); &#125;;</span><br><span class="line">           Action&lt;<span class="keyword">int</span>&gt; a3 = (i) =&gt; &#123; Console.WriteLine(i); &#125;;</span><br><span class="line">           <span class="comment">//如果只有一个参数，可以不写括号</span></span><br><span class="line">           Action&lt;<span class="keyword">int</span>&gt; a4 = i =&gt; &#123; Console.WriteLine(i); &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           a1(<span class="number">6</span>);</span><br><span class="line">           <span class="comment">//Func&lt;string, int, bool&gt; f1 = delegate(string s, int i) &#123; return true; &#125;;</span></span><br><span class="line">           <span class="comment">//Func&lt;string, int, bool&gt; f2 = (string s, int i) =&gt; &#123; return true; &#125;;</span></span><br><span class="line">           <span class="comment">//Func&lt;string, int, bool&gt; f3 = (s, i) =&gt; &#123; return true; &#125;;</span></span><br><span class="line">           <span class="comment">////只有一行代码且为返回值，可以省略方法体和return;</span></span><br><span class="line">           <span class="comment">//Func&lt;string, int, bool&gt; f4 = (s, i) =&gt; true;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           Func&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; f1 = delegate(<span class="keyword">int</span> i) &#123; <span class="keyword">return</span> i * <span class="number">2</span>; &#125;;</span><br><span class="line">           Func&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; f2 = (<span class="keyword">int</span> i) =&gt; &#123; <span class="keyword">return</span> i * <span class="number">2</span>; &#125;;</span><br><span class="line">           Func&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; f3 = i =&gt; i * <span class="number">2</span>;</span><br><span class="line">           <span class="keyword">int</span> j = f3(<span class="number">5</span>);</span><br><span class="line">           Console.WriteLine(j);</span><br></pre></td></tr></table></figure>
+<p>普通匿名类型也是一样用<strong>lambda</strong>表达式</p>
+<h2 id="lambda表达式改造GetMax"><a href="#lambda表达式改造GetMax" class="headerlink" title="lambda表达式改造GetMax"></a><strong>lambda表达式改造GetMax</strong></h2><p><strong>举个栗子</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class"> &#123;</span></span><br><span class="line">     <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">     </span>&#123;</span><br><span class="line">         <span class="keyword">int</span>[] nums = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123; <span class="number">1</span>, <span class="number">3</span>, <span class="number">55</span>, <span class="number">66</span> &#125;;</span><br><span class="line">         <span class="comment">//int m = GetMax(nums, compereInt);</span></span><br><span class="line"></span><br><span class="line">         <span class="comment">//1</span></span><br><span class="line">         <span class="comment">//Func&lt;int, int, bool&gt; f = delegate(int i1, int i2) &#123; return i1 &gt; i2; &#125;;</span></span><br><span class="line">         <span class="comment">//int m = GetMax(nums,f);</span></span><br><span class="line">         <span class="comment">//2</span></span><br><span class="line">         <span class="comment">//int m = GetMax(nums, delegate (int i1,int i2)&#123; return i1 &gt; i2;&#125;);</span></span><br><span class="line">         <span class="comment">//3</span></span><br><span class="line">         <span class="comment">//int m = GetMax(nums, (i1, i2) =&gt; &#123; return i1 &gt; i2; &#125;);</span></span><br><span class="line"></span><br><span class="line">         Person[] Persons = <span class="keyword">new</span> Person[] &#123; <span class="keyword">new</span> Person(<span class="string">"baidu"</span>, <span class="number">8</span>), <span class="keyword">new</span> Person(<span class="string">"sina"</span>, <span class="number">9</span>), <span class="keyword">new</span> Person(<span class="string">"qq"</span>, <span class="number">10</span>) &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         Person p = GetMax(Persons, (p1, p2) =&gt; p1.Age &gt; p2.Age);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         Console.WriteLine(p);</span><br><span class="line">         Console.ReadKey();</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">compereInt</span><span class="params">(<span class="keyword">int</span> i1, <span class="keyword">int</span> i2)</span></span></span><br><span class="line"><span class="function">     </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> i1 &gt; i2;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">static</span> T GetMax&lt;T&gt;(T[] objs, Func&lt;T, T, <span class="keyword">bool</span>&gt; compereFunc)</span><br><span class="line">     &#123;</span><br><span class="line">         T max = objs[<span class="number">0</span>];</span><br><span class="line">         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; objs.Length; i++)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="keyword">if</span> (compereFunc(objs[i], max))<span class="comment">//调用func指向的方法，判断谁大，写这段代码的人也不知道func指向哪个方法，只知道func指向的方法有两个object 参数一个bool返回值</span></span><br><span class="line">                 max = objs[i];</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> max;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class">     &#123;</span></span><br><span class="line">         <span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(<span class="built_in">string</span> name, <span class="keyword">int</span> age)</span></span></span><br><span class="line"><span class="function">         </span>&#123;</span><br><span class="line">             <span class="keyword">this</span>.Name = name;</span><br><span class="line">             <span class="keyword">this</span>.Age = age;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">public</span> <span class="keyword">int</span> Age &#123; get; <span class="built_in">set</span>; &#125;</span><br><span class="line">         <span class="keyword">public</span> <span class="built_in">string</span> Name &#123; get; <span class="built_in">set</span>; &#125;</span><br><span class="line">         <span class="function"><span class="keyword">public</span> override <span class="built_in">string</span> <span class="title">ToString</span><span class="params">()</span></span></span><br><span class="line"><span class="function">         </span>&#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="string">"name="</span> + Name + <span class="string">";age="</span> + Age;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>展开和简化都要有个过程，牢记。</p>
+<h2 id="创建MyWhere"><a href="#创建MyWhere" class="headerlink" title="创建MyWhere"></a>创建MyWhere</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">JiHeExt</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> IEnumerable&lt;T&gt; MyWhere&lt;T&gt;(<span class="keyword">this</span> IEnumerable&lt;T&gt; data, Func&lt;T, <span class="keyword">bool</span>&gt; func)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//foreach() 什么样的对象可以使用foreach遍历：实现了IEnumerabal接口</span></span><br><span class="line">            <span class="comment">//List,数组等都实现了IEnumerable</span></span><br><span class="line">            List&lt;T&gt; resultList = <span class="keyword">new</span> List&lt;T&gt;();</span><br><span class="line">            foreach (T item in data)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (func(item))<span class="comment">//遍历到的这条数据是否满足条件func</span></span><br><span class="line">                &#123;</span><br><span class="line">                    resultList.Add(item);</span><br><span class="line">                &#125;</span><br><span class="line">               </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> resultList;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>调用</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">       </span>&#123;</span><br><span class="line"></span><br><span class="line">           <span class="comment">//int[] nums = new int[] &#123; 3,5,8,10,12,13,15,17&#125;;</span></span><br><span class="line"></span><br><span class="line">           <span class="comment">//IEnumerable&lt;int&gt; r1 = nums.MyWhere(i =&gt; i &gt; 10);//delegate(int)&#123;return i&gt;10;&#125;;</span></span><br><span class="line">           <span class="comment">//IEnumerable&lt;int&gt; r1 = nums.MyWhere(i =&gt; i%2==0);//delegate(int)&#123;return i&gt;10;&#125;;</span></span><br><span class="line">           <span class="comment">//foreach (int item in r1)</span></span><br><span class="line">           <span class="comment">//&#123;</span></span><br><span class="line">           <span class="comment">//    Console.WriteLine(item);</span></span><br><span class="line">           <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">           <span class="built_in">string</span> [] nums = <span class="keyword">new</span> <span class="built_in">string</span>[] &#123;<span class="string">"思宇"</span>,<span class="string">"老耿"</span>,<span class="string">"老孙"</span>,<span class="string">"阿森"</span>&#125;;</span><br><span class="line">           IEnumerable&lt;<span class="built_in">string</span>&gt; r1 = nums.MyWhere(s=&gt;s.Contains(<span class="string">"老"</span>));</span><br><span class="line">         </span><br><span class="line">           foreach (<span class="built_in">string</span> item in r1)</span><br><span class="line">           &#123;</span><br><span class="line">               Console.WriteLine(item);</span><br><span class="line">           &#125;</span><br><span class="line">           Console.ReadKey();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/委托/">委托</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2019/05/20/委托-匿名方法-lambda表达式/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/NET/">.NET</a><small>2</small></li>
+  
+    <li><a href="/tags/委托/">委托</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 menghuaT
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

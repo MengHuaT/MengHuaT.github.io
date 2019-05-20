@@ -52,7 +52,46 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2019-05-12T14:57:10.000Z"><a href="/2019/05/12/委托的定义与应用/">2019-05-12</a></time>
+        <time datetime="2019-05-20T14:14:00.000Z"><a href="/2019/05/20/委托-匿名方法-lambda表达式/">2019-05-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/05/20/委托-匿名方法-lambda表达式/">委托-匿名方法-lambda表达式</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>使用<strong>Delegate</strong>的时候很多时候没必要使用一个普通的方法，因为这个方法只有这个<strong>Delegate</strong>会用，并且只用一次，这时候使用匿名方法最合适。<br><strong>匿名方法就是没有名字的方法。</strong></p>
+<pre><code>MyDelegate p = delegate(int s) { s = 10; };
+</code></pre><p>在IL中编译器是给匿名方法生成了名字的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Action&lt;int&gt; a1 = delegate(int i) &#123; Console.WriteLine(i); &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>匿名方法最大的作用，是用来推导出<strong>lambda</strong>表达式<br>
+      
+    </p></div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2019/05/20/委托-匿名方法-lambda表达式/#more" class="more-link"></a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-05-12T14:57:00.000Z"><a href="/2019/05/12/委托的定义与应用/">2019-05-12</a></time>
       
       
   
@@ -89,17 +128,18 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2019-05-11T11:51:18.000Z"><a href="/2019/05/11/实现hexo异地搭建/">2019-05-11</a></time>
+        <time datetime="2019-05-11T12:30:07.688Z"><a href="/2019/05/11/实现hexo异地搭建/">2019-05-11</a></time>
       
       
   
-    <h1 class="title"><a href="/2019/05/11/实现hexo异地搭建/">实现hexo异地搭建</a></h1>
+    <h1 class="title"><a href="/2019/05/11/实现hexo异地搭建/"></a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p><img src="https://img-blog.csdnimg.cn/20190511201300947.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21lbmdodWFD,size_16,color_FFFFFF,t_70" alt="海绵宝宝和派大星"><br><strong>终于搞定了，公司和家都可以发布GitHub了,最后总结一下经验，主要是有些命令网上博客会有很多版本也有一些不规范导致的多次失败，经过本人不懈的努力和一些朋友的热心帮助，最后终于搞定，在这里记录下，方便查阅。</strong><br>
+        <p>title: 实现hexo异地搭建<br>author: menghuaT<br>tags: []<br>categories: []</p>
+<h2 id="date-2019-05-11-19-51-00"><a href="#date-2019-05-11-19-51-00" class="headerlink" title="date: 2019-05-11 19:51:00"></a>date: 2019-05-11 19:51:00</h2><p><img src="https://img-blog.csdnimg.cn/20190511201300947.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21lbmdodWFD,size_16,color_FFFFFF,t_70" alt="海绵宝宝和派大星"><br><strong>终于搞定了，公司和家都可以发布GitHub了,最后总结一下经验，主要是有些命令网上博客会有很多版本也有一些不规范导致的多次失败，经过本人不懈的努力和一些朋友的热心帮助，最后终于搞定，在这里记录下，方便查阅。</strong><br>
       
     </p></div>
     <footer>
@@ -210,6 +250,8 @@
   <ul class="entry">
   
     <li><a href="/tags/NET/">.NET</a><small>2</small></li>
+  
+    <li><a href="/tags/委托/">委托</a><small>2</small></li>
   
   </ul>
 </div>
