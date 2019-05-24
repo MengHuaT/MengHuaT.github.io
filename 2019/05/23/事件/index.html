@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>事件 | MenghuaT&#39;s Blog</title>
+  <meta name="author" content="menghuaT">
+  
+  <meta name="description" content="Personal site">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="事件">
+  <meta property="og:site_name" content="MenghuaT&#39;s Blog">
+
+  
+    <meta property="og:image" content>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="MenghuaT&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+</html>
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">MenghuaT&#39;s Blog</a></h1>
+  <h2><a href="/">wechat:tmhqwer</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2019-05-23T14:16:22.000Z"><a href="/2019/05/23/事件/">2019-05-23</a></time>
+      
+      
+  
+    <h1 class="title">事件</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p><strong>事件和委托的关系：是由一个私有的委托变量和_add _remove方法注册组成的</strong><br><strong>事件的非简化写法：声明一个私有的委托变量和 add  remov 方法</strong><br><del><strong>错误的说法“事件一种特殊的委托”</strong></del><br><strong>事件、索引器、属性本质上都是方法。</strong><br><strong>接口中可以定义什么？接口中只可以定义方法。接口中也可以定义事件、索引器、属性，因为他们本质上都是方法</strong><br><a id="more"></a><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Program</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span><span class="params">(<span class="built_in">string</span>[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Person p1 = <span class="keyword">new</span> Person();</span><br><span class="line">        p1.BenMingNian += BMN;<span class="comment">//p1.BenMingNian = p1.BenMingNian+ BMN;</span></span><br><span class="line">        <span class="comment">//p1.BenMingNian += BMN2;//方法的参数返回值要和事件的委托一致</span></span><br><span class="line">        <span class="comment">//p1.BenMingNian += BMN3;</span></span><br><span class="line">        <span class="comment">//p1.BenMingNian -= BMN;</span></span><br><span class="line">        <span class="comment">//p1.BenMingNian = null;</span></span><br><span class="line">  </span><br><span class="line">        p1.Age = <span class="number">12</span>;</span><br><span class="line">        Console.WriteLine(p1.Age);</span><br><span class="line">        p1.Age = <span class="number">5</span>;</span><br><span class="line">        Console.WriteLine(p1.Age);</span><br><span class="line">        p1.Age = <span class="number">24</span>;</span><br><span class="line">        Console.WriteLine(p1.Age);</span><br><span class="line">        Console.ReadKey();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BMN</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Console.WriteLine(<span class="string">"我是本命年!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BMN2</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Console.WriteLine(<span class="string">"我是第二!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">BMN3</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Console.WriteLine(<span class="string">"我是第三!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Person类</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Age</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        get</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.age;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">this</span>.age = value;</span><br><span class="line">            <span class="comment">//if (value % 12 == 0)</span></span><br><span class="line">            <span class="comment">//&#123;</span></span><br><span class="line">            <span class="comment">//    if (BenMingNian != null)</span></span><br><span class="line">            <span class="comment">//        BenMingNian();//调用添加的组合的方法</span></span><br><span class="line">            <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>._BenMingNian != null)</span><br><span class="line">                <span class="keyword">this</span>._BenMingNian();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// public event  Action BenMingNian;//event 委托类型  事件名称</span></span><br><span class="line">    <span class="comment">//public  Action BenMingNian;//加上 event 就是事件，去掉event就是个普通的委托</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Action _BenMingNian;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> event Action BenMingNian</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//属性：set; get;set_Age;get_Age</span></span><br><span class="line">        <span class="comment">//索引：get;set; set_Item,get_Item</span></span><br><span class="line">        <span class="comment">//事件：add、remove； add_***,remov_***</span></span><br><span class="line">        add &#123;</span><br><span class="line">            <span class="keyword">this</span>._BenMingNian += value;</span><br><span class="line">        &#125;</span><br><span class="line">        remove &#123;</span><br><span class="line">            <span class="keyword">this</span>._BenMingNian -= value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//事件和委托的关系：是由一个私有的委托变量和 _add***  _remove*** 方法注册组成的</span></span><br><span class="line">    <span class="comment">//事件的非简化写法：声明一个私有的委托变量和 add  remov 方法</span></span><br><span class="line">    <span class="comment">//错误的说法“事件一种特殊的委托”</span></span><br><span class="line">    <span class="comment">//事件、索引器、属性本质上都是方法。</span></span><br><span class="line">    <span class="comment">//接口中可以定义什么？接口中只可以定义方法。接口中也可以定义事件、索引器、属性，因为他们本质上都是方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer>
+      
+        
+        
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://yoursite.com/2019/05/23/事件/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/NET/">.NET</a><small>2</small></li>
+  
+    <li><a href="/tags/委托/">委托</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2019 menghuaT
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
