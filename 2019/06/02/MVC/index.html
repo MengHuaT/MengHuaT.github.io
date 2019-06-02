@@ -51,7 +51,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2019-06-02T09:57:08.000Z"><a href="/2019/06/02/MVC/">2019-06-02</a></time>
+        <time datetime="2019-06-02T09:57:00.000Z"><a href="/2019/06/02/MVC/">2019-06-02</a></time>
       
       
   
@@ -66,7 +66,7 @@
 <li>@就是C#，<code>&lt;a&gt;&lt;/a&gt;</code>就是HTML</li>
 <li>如果想让被识别成HTML的当成C#那就用<code>@()</code></li>
 <li>如果想让被识别成C#的当成HTML，用<code>&lt;span&gt;</code>等标签，如果不想生成额外的标签，就用<code>&lt;text&gt;&lt;/text&gt;</code></li>
-<li>如果不想对内容<strong>htmlencode</strong>显示就用<a href="mailto:`@Html.Raw" target="_blank" rel="noopener">`@Html.Raw</a>`</li>
+<li>如果不想对内容<strong>htmlencode</strong>显示就用 @<code>Html.Raw</code></li>
 <li>属性的值如果是以“<strong>~/</strong>”开头会进行虚拟路径处理</li>
 <li>属性值如果是bool类型，如果是false就不会输出这个属性，如果<strong>true</strong>就输出“<strong>属性名=属性名</strong>”<code>&lt;input type=&quot;type&quot; checked=&quot;@b1&quot;/&gt;</code></li>
 </ol>
@@ -77,6 +77,11 @@
       
         
         
+  
+  <div class="tags">
+    <a href="/tags/MVC/">MVC</a>
+  </div>
+
         
   <div class="addthis addthis_toolbox addthis_default_style">
     
@@ -139,6 +144,8 @@
   <ul class="entry">
   
     <li><a href="/tags/NET/">.NET</a><small>2</small></li>
+  
+    <li><a href="/tags/MVC/">MVC</a><small>1</small></li>
   
     <li><a href="/tags/委托/">委托</a><small>2</small></li>
   
