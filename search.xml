@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MVC]]></title>
+    <url>%2F2019%2F06%2F02%2FMVC%2F</url>
+    <content type="text"><![CDATA[Razor语法总结 @就是C#，&lt;a&gt;&lt;/a&gt;就是HTML 如果想让被识别成HTML的当成C#那就用@() 如果想让被识别成C#的当成HTML，用&lt;span&gt;等标签，如果不想生成额外的标签，就用&lt;text&gt;&lt;/text&gt; 如果不想对内容htmlencode显示就用`@Html.Raw` 属性的值如果是以“~/”开头会进行虚拟路径处理 属性值如果是bool类型，如果是false就不会输出这个属性，如果true就输出“属性名=属性名”&lt;input type=&quot;type&quot; checked=&quot;@b1&quot;/&gt;]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[火星通行证]]></title>
     <url>%2F2019%2F05%2F24%2F%E5%B8%A6%E7%9D%80%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E4%B8%8A%E7%81%AB%E6%98%9F%2F</url>
     <content type="text"><![CDATA[]]></content>

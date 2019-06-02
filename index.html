@@ -52,6 +52,47 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2019-06-02T09:57:08.000Z"><a href="/2019/06/02/MVC/">2019-06-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2019/06/02/MVC/">MVC</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p><img src="https://img-blog.csdnimg.cn/20190602175631833.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L21lbmdodWFD,size_16,color_FFFFFF,t_70" alt="mvc流程图"></p>
+<h2 id="Razor语法总结"><a href="#Razor语法总结" class="headerlink" title="Razor语法总结"></a>Razor语法总结</h2><ol>
+<li>@就是C#，<code>&lt;a&gt;&lt;/a&gt;</code>就是HTML</li>
+<li>如果想让被识别成HTML的当成C#那就用<code>@()</code></li>
+<li>如果想让被识别成C#的当成HTML，用<code>&lt;span&gt;</code>等标签，如果不想生成额外的标签，就用<code>&lt;text&gt;&lt;/text&gt;</code></li>
+<li>如果不想对内容<strong>htmlencode</strong>显示就用<a href="mailto:`@Html.Raw" target="_blank" rel="noopener">`@Html.Raw</a>`</li>
+<li>属性的值如果是以“<strong>~/</strong>”开头会进行虚拟路径处理</li>
+<li>属性值如果是bool类型，如果是false就不会输出这个属性，如果<strong>true</strong>就输出“<strong>属性名=属性名</strong>”<code>&lt;input type=&quot;type&quot; checked=&quot;@b1&quot;/&gt;</code></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2019-05-24T14:22:25.000Z"><a href="/2019/05/24/带着你的名字上火星/">2019-05-24</a></time>
       
       
